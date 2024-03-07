@@ -1,6 +1,5 @@
 import mysql from "mysql"
 
-
 // Configuração do banco de dados
 export const db = mysql.createConnection({
     host: "localhost",
