@@ -20,7 +20,6 @@ db.connect( (err) => {
     app.get('/', (req, res) => {
         res.send("Olá");    
     })
-
     app.use('/animes', animeController)
 
 
