@@ -8,14 +8,14 @@ export function getAllAnimes (callback) {
     })
 }
 
-export const getAnimeById = (id, callback) => {
+export const findById = (id) => {
+    console.log(id)
+
     const q = "SELECT * FROM animes WHERE MAL_ID = ?"
+    
     db.query(q, [id], (err, data) => {
         if (err) console.log("Erro: " + err);
-        if (data.length == 0) {
-            throw new Error('Anime não encontrado.')
-        }
-        return callback(data)
+        return data;
     })
 }
 

@@ -1,6 +1,6 @@
 import express from 'express'
 import { db } from './config/db.js'
-import router from './controller/routes/animeController.js'
+import router from './routes/router.js'
 const app = express()
 const PORT = 8080
 const animeController = router
@@ -10,7 +10,7 @@ app.use(express.json())
 
 // Teste de conexão com o banco de dados
 db.connect( (err) => {
-    if (err) console.log("Erro: " + err);
+    if (err) console.log("Erro: " + err.message);
     console.log("Conectado com o banco de dados!");
 })
 

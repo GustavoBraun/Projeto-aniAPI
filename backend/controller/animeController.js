@@ -1,4 +1,5 @@
-import { getAllAnimes, getAnimeById } from '../repository/animeRepository.js'
+import { getAllAnimes } from '../repository/animeRepository.js'
+import { getAnimeById } from "../services/anime.service.js";
 
 export const animesIndex = (req, res) => {
     getAllAnimes((animes) => {
@@ -9,11 +10,11 @@ export const animesIndex = (req, res) => {
 
 export const singleAnime = (req, res) => {
     const id = req.params.MAL_ID
-    try {        
+    try {
         getAnimeById(id, (data) => {
-            return res.status(200).json(data)   
+            return res.status(200).json(data)
         })
     } catch (error) {
-        return res.status(404).json("Omg")
+        return res.status(404).json({message: error.message})
     }
 }
